@@ -1,3 +1,0 @@
-Name = "Neo Technology"
-Country = India
-Branch = Vizag
