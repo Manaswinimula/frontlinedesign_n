@@ -1,90 +1,36 @@
 import React from "react";
+
+import { Link } from "react-router-dom";
 import "../header/Header.css";
-import icon from "../../assets/interior-design.png";
 
 function Header() {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-          <img
-            style={{ width: "70px" }}
-            className="headicon"
-            src={icon}
-            alt="icon"
-          />
+      <nav className="nav">
+        <i className="uil uil-bars navOpenBtn"></i>
+        <a href="/" className="logo">
+          Frontline
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                Home <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Link
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">
-                  Action
-                </a>
-                <a class="dropdown-item" href="#">
-                  Another action
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-              >
-                Disabled
-              </a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Search
-            </button>
-          </form>
+        <ul className="nav-links">
+          <i className="uil uil-times navCloseBtn"></i>
+          <li>
+            <Link to="/dashboard">Home</Link>
+          </li>
+          {/* <li><Link to="#">Services</Link></li> */}
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contactus">Contact Us</Link>
+          </li>
+        </ul>
+        <div className="nav-buttons">
+          <Link to="/login" className="btn btn-pri">
+            Login
+          </Link>
+          <Link to="/signup" className="btn btn-sec">
+            Signup
+          </Link>
         </div>
       </nav>
     </div>

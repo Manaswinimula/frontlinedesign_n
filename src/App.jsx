@@ -1,19 +1,37 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-import Content from "./components/content/Content";
-
+import AppRouter from "./components/routes/AppRouter";
 function App() {
   return (
     <>
-      <Header />
-      <Content />
-      <Footer />
+      <AppRouter />
     </>
   );
 }
 
 export default App;
+
+// import React from "react";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   Navigate,
+// } from "react-router-dom";
+// import SignUp from "./components/login-signup/SignUp";
+// import Login from "./components/login-signup/Login";
+// import Dashboard from "./components//Dashboard";
+
+// const App = () => {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Navigate to="/signup" />} />
+//         <Route path="/signup" element={<SignUp />} />
+//         <Route path="/login" element={<Login />} />
+//         <Route path="/dashboard" element={<Dashboard />} />
+//       </Routes>
+//     </Router>
+//   );
+// };
+
+// export default App;
