@@ -1,13 +1,42 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 // Styled components for the About Us page
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const AboutUsPage = styled.div`
-  padding: 50px;
-  background-color:rgb(202, 254, 238);
-  font-family: Arial, sans-serif;
+  padding: 4rem 2rem;
   text-align: center;
-  height:85vh;
+  animation: ${fadeIn} 1.2s ease-in-out;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background:rgb(203, 247, 247);
+  color: #333;
+  height:90vh;
+`;
+
+const AboutSection = styled.div`
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const AboutUsTitle = styled.h1`
@@ -32,19 +61,19 @@ const AboutUsContent = styled.div`
   flex-wrap: wrap;
 `;
 
-const AboutSection = styled.div`
-  background-color: #ffffff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+// const AboutSection = styled.div`
+//   background-color: #ffffff;
+//   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+//   padding: 20px;
+//   border-radius: 10px;
+//   width: 300px;
+//   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-  }
-`;
+//   &:hover {
+//     transform: scale(1.05);
+//     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+//   }
+// `;
 
 const AboutSectionTitle = styled.h2`
   font-size: 1.5rem;
@@ -63,7 +92,8 @@ function About() {
     <AboutUsPage>
       <AboutUsTitle>About Us</AboutUsTitle>
       <AboutUsDescription>
-        Welcome to Frontline! We are committed to delivering exceptional products and services tailored to meet your needs.
+        Welcome to Frontline! We are committed to delivering exceptional products 
+        and services tailored to meet your needs.
       </AboutUsDescription>
       <AboutUsContent>
         <AboutSection>

@@ -1,5 +1,6 @@
 import React from "react";
 import "../footer/Footer.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -26,17 +27,17 @@ function Footer() {
             <a class="footer-link">Advertisement</a>
           </nav> */}
             <nav>
-              <h6 class="footer-heading">Company</h6>
-              <a class="footer-link">About us</a>
-              <a class="footer-link">Contact</a>
+              <h6 className="footer-heading">Company</h6>
+              <Link className="footer-link">About us</Link>
+              <Link className="footer-link">Contact</Link>
               {/* <a class="footer-link">Jobs</a>
             <a class="footer-link">Press kit</a> */}
             </nav>
             <nav>
-              <h6 class="footer-heading">Legal</h6>
-              <a class="footer-link">Terms of use</a>
-              <a class="footer-link">Privacy policy</a>
-              <a class="footer-link">Cookie policy</a>
+              <h6 className="footer-heading">Legal</h6>
+              <Link className="footer-link">Terms of use</Link>
+              <Link className="footer-link">Privacy policy</Link>
+              <Link className="footer-link">Cookie policy</Link>
             </nav>
           </div>
         </footer>
