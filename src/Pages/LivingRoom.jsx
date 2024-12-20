@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import { WishlistContext } from "../Context/WishlistContext";
+import { WishlistContext } from "../Context/WishListContext";
 import limage1 from "../assets/livingroom/limage1.jpeg";
 import limage2 from "../assets/livingroom/limage2.jpeg";
 import limage3 from "../assets/livingroom/limage3.jpeg";
