@@ -20,8 +20,7 @@ import Kitchen from "../Pages/Kitchen";
 import Bedroom from "../Pages/Bedroom";
 import LivingRoom from "../Pages/LivingRoom";
 import { WishlistProvider } from "../Context/WishListContext";
-import WishlistPage from "../Pages/WishListPage";
-
+import WishlistPage from "../Pages/WishlistPage";
 function AppRouter() {
    const [userEmail, setUserEmail] = useState(null);
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
