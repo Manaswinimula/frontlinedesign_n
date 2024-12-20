@@ -21,7 +21,6 @@ import Bedroom from "../Pages/Bedroom";
 import LivingRoom from "../Pages/LivingRoom";
 import { WishlistProvider } from "../Context/WishListContext";
 import WishlistPage from "../Pages/WishListPage";
-import BookAppointment from "../Pages/BookAppointment";
 
 function AppRouter() {
    const [userEmail, setUserEmail] = useState(null);
@@ -43,7 +42,6 @@ function AppRouter() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/bookappointment" element={<BookAppointment />} />
           <Route path="/living-room" element={<LivingRoom />} />
           <Route path="/kitchen" element={
             <ProtectedRouter>
