@@ -410,12 +410,38 @@ const SignUp = () => {
     fetchUsers();
   }, []);
 
+  const validatePassword = (password) => {
+    const errors = [];
+    if (password.length < 6) {
+      errors.push("Password must be at least 6 characters long.");
+    }
+    if (!/[A-Z]/.test(password)) {
+      errors.push("Password must contain at least one uppercase letter.");
+    }
+    if (!/[a-z]/.test(password)) {
+      errors.push("Password must contain at least one lowercase letter.");
+    }
+    if (!/[!@#$%^&*]/.test(password)) {
+      errors.push("Password must contain at least one special character.");
+    }
+    return errors;
+  };
+
   const validateForm = () => {
     const newErrors = {};
+
     if (!user.name) newErrors.name = "Name is required.";
     if (!user.phone) newErrors.phone = "Phone number is required.";
+    else if (!/^\d{10}$/.test(user.phone))
+      newErrors.phone = "Phone number must be 10 digits.";
     if (!user.email) newErrors.email = "Email is required.";
+    else if (!/@gmail\.com$/.test(user.email))
+      newErrors.email = "Email must end with @gmail.com.";
     if (!user.password) newErrors.password = "Password is required.";
+    else {
+      const passwordErrors = validatePassword(user.password);
+      if (passwordErrors.length > 0) newErrors.password = passwordErrors[0]; // Show first error only
+    }
     if (user.password !== user.confirmPassword)
       newErrors.confirmPassword = "Passwords do not match.";
 
