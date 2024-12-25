@@ -261,7 +261,7 @@ import axios from "axios";
 import styled, { keyframes } from "styled-components";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
-// Animations
+
 const zoomIn = keyframes`
   from {
     opacity: 0;
