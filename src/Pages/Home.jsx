@@ -173,7 +173,7 @@ const Home = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleExploreClick = () => {
-    navigate("/signup"); // Redirect to the login page when the button is clicked
+    navigate("/login"); // Redirect to the login page when the button is clicked
   };
 
   return (

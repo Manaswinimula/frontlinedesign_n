@@ -1,10 +1,11 @@
-// import React, { useState } from "react";
+
+// import React, { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 // import axios from "axios";
 // import styled, { keyframes } from "styled-components";
-// import { FiEye, FiEyeOff } from "react-icons/fi"; // Import eye icons from react-icons
+// import { FiEye, FiEyeOff } from "react-icons/fi";
 
-// // Animations
+
 // const zoomIn = keyframes`
 //   from {
 //     opacity: 0;
@@ -50,7 +51,7 @@
 //   flex-direction: column;
 //   justify-content: center;
 //   align-items: center;
-//   animation: ${zoomIn} 0.7s ease-out; /* Apply zoom-in animation */
+//   animation: ${zoomIn} 0.7s ease-out;
 // `;
 
 // const Title = styled.h2`
@@ -108,11 +109,11 @@
 //   color: red;
 //   font-size: 14px;
 //   margin: 5px 0 0;
-//   animation: ${(props) => (props.shake ? shake : "none")} 0.5s ease-in-out; /* Apply shake animation */
+//   animation: ${(props) => (props.shake ? shake : "none")} 0.5s ease-in-out;
 // `;
 
 // const Para = styled.p`
-//   font-size: 20px;
+//   font-size: 17px;
 //   margin-top: 20px;
 // `;
 
@@ -123,12 +124,12 @@
 // // Component
 // const SignUp = () => {
 //   const [user, setUser] = useState({
-//     id: parseInt(Math.random() * 10000, 10),
-//     name: '',
-//     phone: '',
-//     email: '',
-//     password: '',
-//     confirmPassword: ''
+//     id: 1,
+//     name: "",
+//     phone: "",
+//     email: "",
+//     password: "",
+//     confirmPassword: "",
 //   });
 
 //   const [errors, setErrors] = useState({});
@@ -136,15 +137,58 @@
 //   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 //   const navigate = useNavigate();
 
+//   useEffect(() => {
+//     // Fetch existing users and calculate next ID
+//     const fetchUsers = async () => {
+//       try {
+//         const response = await axios.get("http://localhost:5224/api/Frontline/GetUsers/GetUserList");
+//         if (response.data.length > 0) {
+//           const maxId = Math.max(...response.data.map((u) => u.id));
+//           setUser((prevUser) => ({ ...prevUser, id: maxId + 1 }));
+//         }
+//       } catch (error) {
+//         console.error("Error fetching users:", error);
+//       }
+//     };
+
+//     fetchUsers();
+//   }, []);
+
+//   const validatePassword = (password) => {
+//     const errors = [];
+//     if (password.length < 6) {
+//       errors.push("Password must be at least 6 characters long.");
+//     }
+//     if (!/[A-Z]/.test(password)) {
+//       errors.push("Password must contain at least one uppercase letter.");
+//     }
+//     if (!/[a-z]/.test(password)) {
+//       errors.push("Password must contain at least one lowercase letter.");
+//     }
+//     if (!/[!@#$%^&*]/.test(password)) {
+//       errors.push("Password must contain at least one special character.");
+//     }
+//     return errors;
+//   };
+
 //   const validateForm = () => {
 //     const newErrors = {};
-//     // Form validation logic
+
 //     if (!user.name) newErrors.name = "Name is required.";
 //     if (!user.phone) newErrors.phone = "Phone number is required.";
+//     else if (!/^\d{10}$/.test(user.phone))
+//       newErrors.phone = "Phone number must be 10 digits.";
 //     if (!user.email) newErrors.email = "Email is required.";
+//     else if (!/@gmail\.com$/.test(user.email))
+//       newErrors.email = "Email must end with @gmail.com.";
 //     if (!user.password) newErrors.password = "Password is required.";
-//     if (user.password !== user.confirmPassword) newErrors.confirmPassword = "Passwords do not match.";
-    
+//     else {
+//       const passwordErrors = validatePassword(user.password);
+//       if (passwordErrors.length > 0) newErrors.password = passwordErrors[0]; // Show first error only
+//     }
+//     if (user.password !== user.confirmPassword)
+//       newErrors.confirmPassword = "Passwords do not match.";
+
 //     setErrors(newErrors);
 //     return Object.keys(newErrors).length === 0;
 //   };
@@ -153,16 +197,14 @@
 //     if (!validateForm()) return;
 
 //     try {
-//       // Check if email already exists
-//       const existingUsersResponse = await axios.get(`http://localhost:3000/users?email=${user.email}`);
-//       console.log("Existing users response:", existingUsersResponse.data); // Log the response to debug
-
+//       const existingUsersResponse = await axios.get(
+//         `http://localhost:5224/api/Frontline/GetUsers/GetUserList?email=${user.email}`
+//       );
 //       if (existingUsersResponse.data.length > 0) {
 //         setErrors({ email: "Email already exists. Please use a different email." });
 //         return;
 //       }
 
-//       // Proceed with registration if email is unique
 //       const newUser = {
 //         id: user.id,
 //         name: user.name,
@@ -171,7 +213,7 @@
 //         password: user.password,
 //       };
 
-//       const response = await axios.post("http://localhost:3000/users", newUser);
+//       const response = await axios.post("http://localhost:5224/api/Frontline/AddUserAync", newUser);
 //       if (response.status === 201) {
 //         navigate("/login");
 //       } else {
@@ -255,12 +297,12 @@
 // export default SignUp;
 
 
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled, { keyframes } from "styled-components";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-
 
 const zoomIn = keyframes`
   from {
@@ -369,7 +411,7 @@ const ErrorText = styled.p`
 `;
 
 const Para = styled.p`
-  font-size: 20px;
+  font-size: 17px;
   margin-top: 20px;
 `;
 
@@ -380,7 +422,7 @@ const Anchortag = styled.a`
 // Component
 const SignUp = () => {
   const [user, setUser] = useState({
-    id: 1,
+    id: null,
     name: "",
     phone: "",
     email: "",
@@ -394,13 +436,14 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch existing users and calculate next ID
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("https://frontlineserver.onrender.com/users");
+        const response = await axios.get("http://localhost:5224/api/Frontline/GetUsers/GetUserList");
         if (response.data.length > 0) {
           const maxId = Math.max(...response.data.map((u) => u.id));
           setUser((prevUser) => ({ ...prevUser, id: maxId + 1 }));
+        } else {
+          setUser((prevUser) => ({ ...prevUser, id: 1 }));
         }
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -409,23 +452,6 @@ const SignUp = () => {
 
     fetchUsers();
   }, []);
-
-  const validatePassword = (password) => {
-    const errors = [];
-    if (password.length < 6) {
-      errors.push("Password must be at least 6 characters long.");
-    }
-    if (!/[A-Z]/.test(password)) {
-      errors.push("Password must contain at least one uppercase letter.");
-    }
-    if (!/[a-z]/.test(password)) {
-      errors.push("Password must contain at least one lowercase letter.");
-    }
-    if (!/[!@#$%^&*]/.test(password)) {
-      errors.push("Password must contain at least one special character.");
-    }
-    return errors;
-  };
 
   const validateForm = () => {
     const newErrors = {};
@@ -438,10 +464,15 @@ const SignUp = () => {
     else if (!/@gmail\.com$/.test(user.email))
       newErrors.email = "Email must end with @gmail.com.";
     if (!user.password) newErrors.password = "Password is required.";
-    else {
-      const passwordErrors = validatePassword(user.password);
-      if (passwordErrors.length > 0) newErrors.password = passwordErrors[0]; // Show first error only
-    }
+    else if (user.password.length < 6) newErrors.password = "Password must be at least 6 characters.";
+    else if (!/[A-Z]/.test(user.password))
+      newErrors.password = "Password must contain at least one uppercase letter.";
+    else if (!/[a-z]/.test(user.password))
+      newErrors.password = "Password must contain at least one lowercase letter.";
+    else if (!/[0-9]/.test(user.password))
+      newErrors.password = "Password must contain at least one digit.";
+    else if (!/[!@#$%^&*(),.?":{}|<>]/.test(user.password))
+      newErrors.password = "Password must contain at least one special character.";
     if (user.password !== user.confirmPassword)
       newErrors.confirmPassword = "Passwords do not match.";
 
@@ -453,10 +484,10 @@ const SignUp = () => {
     if (!validateForm()) return;
 
     try {
-      const existingUsersResponse = await axios.get(
-        `https://frontlineserver.onrender.com/users?email=${user.email}`
-      );
-      if (existingUsersResponse.data.length > 0) {
+      const response = await axios.get("http://localhost:5224/api/Frontline/GetUsers/GetUserList");
+      const existingUser = response.data.find((u) => u.email === user.email);
+
+      if (existingUser) {
         setErrors({ email: "Email already exists. Please use a different email." });
         return;
       }
@@ -467,10 +498,15 @@ const SignUp = () => {
         phone: user.phone,
         email: user.email,
         password: user.password,
+        profilePicture: ""
       };
 
-      const response = await axios.post("https://frontlineserver.onrender.com/users", newUser);
-      if (response.status === 201) {
+      const registerResponse = await axios.post(
+        "http://localhost:5224/api/Frontline/AddUserAync",
+        newUser
+      );
+
+      if (registerResponse.status === 200) {
         navigate("/login");
       } else {
         console.error("Failed to register user!");

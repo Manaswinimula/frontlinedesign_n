@@ -137,13 +137,15 @@ function WishlistPage() {
       {/* Contact Us Section */}
       <ContactSection>
         <ContactCard>
-          <ContactIcon>
-            <FaPhoneAlt />
-          </ContactIcon>
+          <ContactLink href="tel:+919704714412">
+            <ContactIcon>
+              <FaPhoneAlt />
+            </ContactIcon>
+          </ContactLink>
           <ContactHeading>Phone</ContactHeading>
           <ContactText>Feel free to contact us! We'll help you design
           your space and bring your vision to life.</ContactText>
-          <ContactLink href="tel:+919704714412">+91 9704714412</ContactLink>
+          {/* <ContactLink>+91 9704714412</ContactLink> */}
         </ContactCard>
       </ContactSection>
     </WishlistContainer>
