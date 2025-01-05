@@ -75,10 +75,28 @@ const WishlistButton = styled.button`
     background-color: #ccc;
     cursor: not-allowed;
   }
+    @media (max-width: 768px) {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
 `;
 const BedroomContainer = styled.div`
   text-align: center;
   padding: 20px;
+  margin-right:15px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 5px;
+  }
 `;
 
 const BedroomImage = styled.img`
@@ -86,6 +104,14 @@ const BedroomImage = styled.img`
   height: 80vh;
   border-radius: 10px;
   margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    height: 50vh;
+  }
+
+  @media (max-width: 480px) {
+    height: 40vh;
+  }
 `;
 
 const BedroomHeading = styled.h1`
@@ -104,6 +130,16 @@ const CardsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 30px;
+
+  @media (max-width: 768px) {
+    gap: 30px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Card = styled.div`
@@ -123,6 +159,17 @@ const Card = styled.div`
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  @media (max-width: 768px) {
+    width: 300px;
+    height: 300px;
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    height: auto;
+    padding: 10px;
   }
 `;
 
@@ -169,6 +216,15 @@ const PopupCard = styled.div`
   width: 400px;
   text-align: center;
   position: relative;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 `;
 
 const PopupImage = styled.img`

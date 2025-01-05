@@ -1,49 +1,219 @@
+
+
 import React from "react";
-import "../footer/Footer.css";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
+
+
+// Styled Components
+
+
+const FooterContainer = styled.footer`
+  background-color: #333333;
+  color: #e4e4e4;
+  padding: 40px 0;
+  margin-top: 80px;
+
+  @media (max-width: 768px) {
+    padding: 30px 0;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+`;
+
+const FooterTitleWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+  @media (max-width: 768px) {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 20px;
+  }
+`;
+
+const FooterTitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  margin-bottom: -30px;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+`;
+
+const Line = styled.span`
+  height: 1px;
+  background-color: #333333;
+  flex: 1;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+`;
+
+const Title = styled.span`
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.5rem;
+  color: #333333;
+  white-space: nowrap;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+`;
+
+const FooterContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+  gap: 80px;
+
+  @media (max-width: 768px) {
+    padding: 0 40px;
+    gap: 40px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 20px;
+  }
+`;
+
+const Brand = styled.aside`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+
+  @media (max-width: 480px) {
+    align-items: flex-start;
+  }
+`;
+
+const FooterHeading = styled.h6`
+  font-family: "Bodoni Moda", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #e4e4e4;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+
+  @media (max-width: 480px) {
+    align-items: flex-start;
+  }
+`;
+
+const FooterLink = styled(Link)`
+  color: #bdbdbd;
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.875rem;
+
+  &:hover {
+    color: #00cccc;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+`;
+
+
+
+
+
+const FooterContainerOuter = styled.footer`
+  font-style: "Roboto";
+`
+
 
 function Footer() {
   return (
-    <div>
-      <div>
-        <div class="footer-title-wrapper">
-          <div class="footer-title-container">
-            <span class="line"></span>
-            <span class="title">FrontLine where design mets the creativity.</span>
-            <span class="line"></span>
-          </div>
-        </div>
-        <footer class="footer">
-          <div class="footer-content">
-            <aside class="footer-brand">
-              {/* <img class="footer-icon" src={icon}></img> */}
-              <h1 class="footer-heading">interior-design</h1>
-            </aside>
-            {/* <nav>
-            <h6 class="footer-heading">Services</h6>
-            <a class="footer-link">Branding</a>
-            <a class="footer-link">Design</a>
-            <a class="footer-link">Marketing</a>
-            <a class="footer-link">Advertisement</a>
-          </nav> */}
-            <nav>
-              <h6 className="footer-heading">Company</h6>
-              <Link className="footer-link">About us</Link>
-              <Link className="footer-link">Contact</Link>
-              {/* <a class="footer-link">Jobs</a>
-            <a class="footer-link">Press kit</a> */}
-            </nav>
-            <nav>
-              <h6 className="footer-heading">Legal</h6>
-              <Link className="footer-link">Terms of use</Link>
-              <Link className="footer-link">Privacy policy</Link>
-              <Link className="footer-link">Cookie policy</Link>
-            </nav>
-          </div>
-        </footer>
-      </div>
-    </div>
+    <FooterContainerOuter>
+    
+      <FooterTitleWrapper>
+        <FooterTitleContainer>
+          <Line />
+          <Title>FrontLine Design where design mets the creation!</Title>
+          <Line />
+        </FooterTitleContainer>
+      </FooterTitleWrapper>
+      <FooterContainer>
+      <FooterContent>
+        <Brand>
+          <FooterHeading>interior-design</FooterHeading>
+        </Brand>
+        <Nav>
+          <FooterHeading>Services</FooterHeading>
+          <FooterLink>Branding</FooterLink>
+          <FooterLink>Design</FooterLink>
+          <FooterLink>Marketing Us</FooterLink>
+          <FooterLink>Advertisement</FooterLink>
+        </Nav>
+        <Nav>
+          <FooterHeading>Company</FooterHeading>
+          <FooterLink to="/about">About Us</FooterLink>
+          <FooterLink to="/contactus">Contact</FooterLink>
+        </Nav>
+        <Nav>
+          <FooterHeading>Legal</FooterHeading>
+          <FooterLink to="/terms">Terms of Use</FooterLink>
+          <FooterLink to="/privacy">Privacy Policy</FooterLink>
+          <FooterLink to="/cookies">Cookie Policy</FooterLink>
+        </Nav>
+      </FooterContent>
+    </FooterContainer>
+    </FooterContainerOuter>
   );
 }
 
 export default Footer;
+

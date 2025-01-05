@@ -9,7 +9,7 @@ import image2 from "../../assets/int2.jpeg";
 import image3 from "../../assets/int3.jpeg";
 
 function Content() {
-  return (
+  return ( 
     <div>
       <div
         id="carouselExampleControls"

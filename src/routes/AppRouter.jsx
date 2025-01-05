@@ -15,7 +15,7 @@ import ProtectedRouter from "./ProtectedRouter";
 import MyProfile from "../Pages/MyProfile";
 import { AuthProvider } from "../Context/AuthContext";
 import Home from "../Pages/Home";
-import Logout from "../Pages/Logout";
+//import Logout from "../Pages/Logout";
 import Kitchen from "../Pages/Kitchen";
 import Bedroom from "../Pages/Bedroom";
 import LivingRoom from "../Pages/LivingRoom";
@@ -72,11 +72,11 @@ function AppRouter() {
               <MyProfile userEmail={userEmail}/>
             </ProtectedRouter>
           } />
-          <Route path="/logout" element={
+          {/* <Route path="/logout" element={
             <ProtectedRouter>
               <Logout />
             </ProtectedRouter>
-          } />
+          } /> */}
         </Routes>
       </MainLayouts>
       </WishlistProvider>

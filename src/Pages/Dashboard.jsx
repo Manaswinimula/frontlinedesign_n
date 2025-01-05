@@ -175,7 +175,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <ChatbotContainer>
+      {/* <ChatbotContainer>
         {!isChatOpen ? (
           <ChatbotToggle onClick={toggleChat}>Chat with us!</ChatbotToggle>
         ) : (
@@ -207,7 +207,7 @@ function Dashboard() {
             </ChatbotFooter>
           </ChatbotWindow>
         )}
-      </ChatbotContainer>
+      </ChatbotContainer> */}
     </div>
   );
 }
