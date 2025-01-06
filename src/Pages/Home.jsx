@@ -6,6 +6,7 @@ import image7 from "../assets/kit1.jpg";
 import image8 from "../assets/liv1.jpg";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Services from "./Services";
+import FAQ from "./FAQ";
 
 // Animations
 
@@ -170,20 +171,20 @@ const Card = styled.div`
 `;
 
 const Home = () => {
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate(); 
 
   const handleExploreClick = () => {
-    navigate("/login"); // Redirect to the login page when the button is clicked
+    navigate("/login"); 
   };
 
   return (
     <Wrapper>
-      {/* Hero Section */}
+      
       <HeroSection>
         <HeroText>
           <h1>Design that speaks to your soul</h1>
-          {/* <p>Elegant, modern, and timeless interior design solutions.</p> */}
-          <button onClick={handleExploreClick}>Explore Now</button> {/* Added onClick handler */}
+          
+          <button onClick={handleExploreClick}>Explore Now</button> 
         </HeroText>
         <HeroImage>
           <img src={image1} className="d-block w-100" alt="..." />
@@ -222,6 +223,8 @@ const Home = () => {
         </p>
       </Section>
       <Services />
+
+      <FAQ />
     </Wrapper>
   );
 };

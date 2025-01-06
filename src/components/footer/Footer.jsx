@@ -3,10 +3,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram , FaCopyright} from "react-icons/fa";
 
 // Styled Components
-
 
 const FooterContainer = styled.footer`
   background-color: #333333;
@@ -166,19 +165,113 @@ const FooterLink = styled(Link)`
   }
 `;
 
+const SocialIcons = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 
+  a {
+    color: #e4e4e4;
+    font-size: 1.2rem;
 
-
+    &:hover {
+      color: #00cccc;
+    }
+  }
+`;
 
 const FooterContainerOuter = styled.footer`
   font-style: "Roboto";
-`
+`;
+
+
+const CopyrightContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #bdbdbd;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+    margin-top: 15px;
+  }
+`;
+
+
+
+
+
+// function Footer() {
+//   return (
+//     <FooterContainerOuter>
+//       <FooterTitleWrapper>
+//         <FooterTitleContainer>
+//           <Line />
+//           <Title>FrontLine Design where design mets the creation!</Title>
+//           <Line />
+//         </FooterTitleContainer>
+//       </FooterTitleWrapper>
+//       <FooterContainer>
+//         <FooterContent>
+//           <Brand>
+//             <FooterHeading>interior-design</FooterHeading>
+//             <SocialIcons>
+//               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+//                 <FaFacebookF />
+//               </a>
+//               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+//                 <FaTwitter />
+//               </a>
+//               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+//                 <FaYoutube />
+//               </a>
+//               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+//                 <FaInstagram />
+//               </a>
+//             </SocialIcons>
+//           </Brand>
+//           <Nav>
+//             <FooterHeading>Services</FooterHeading>
+//             <FooterLink>Branding</FooterLink>
+//             <FooterLink>Design</FooterLink>
+//             <FooterLink>Marketing Us</FooterLink>
+//             <FooterLink>Advertisement</FooterLink>
+//           </Nav>
+//           <Nav>
+//             <FooterHeading>Company</FooterHeading>
+//             <FooterLink to="/about">About Us</FooterLink>
+//             <FooterLink to="/contactus">Contact</FooterLink>
+//           </Nav>
+//           <Nav>
+//             <FooterHeading>Legal</FooterHeading>
+//             <FooterLink to="/terms">Terms of Use</FooterLink>
+//             <FooterLink to="/privacy">Privacy Policy</FooterLink>
+//             <FooterLink to="/cookies">Cookie Policy</FooterLink>
+//           </Nav>
+//         </FooterContent>
+//         {/* <SocialIcons>
+//           <FaCopyright />
+          
+//         </SocialIcons> */}
+//       </FooterContainer>
+//     </FooterContainerOuter>
+//   );
+// }
+
+// export default Footer;
+
+
 
 
 function Footer() {
   return (
     <FooterContainerOuter>
-    
       <FooterTitleWrapper>
         <FooterTitleContainer>
           <Line />
@@ -187,33 +280,52 @@ function Footer() {
         </FooterTitleContainer>
       </FooterTitleWrapper>
       <FooterContainer>
-      <FooterContent>
-        <Brand>
-          <FooterHeading>interior-design</FooterHeading>
-        </Brand>
-        <Nav>
-          <FooterHeading>Services</FooterHeading>
-          <FooterLink>Branding</FooterLink>
-          <FooterLink>Design</FooterLink>
-          <FooterLink>Marketing Us</FooterLink>
-          <FooterLink>Advertisement</FooterLink>
-        </Nav>
-        <Nav>
-          <FooterHeading>Company</FooterHeading>
-          <FooterLink to="/about">About Us</FooterLink>
-          <FooterLink to="/contactus">Contact</FooterLink>
-        </Nav>
-        <Nav>
-          <FooterHeading>Legal</FooterHeading>
-          <FooterLink to="/terms">Terms of Use</FooterLink>
-          <FooterLink to="/privacy">Privacy Policy</FooterLink>
-          <FooterLink to="/cookies">Cookie Policy</FooterLink>
-        </Nav>
-      </FooterContent>
-    </FooterContainer>
+        <FooterContent>
+          <Brand>
+            <FooterHeading>interior-design</FooterHeading>
+            <SocialIcons>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <FaFacebookF />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <FaTwitter />
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                <FaYoutube />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <FaInstagram />
+              </a>
+            </SocialIcons>
+          </Brand>
+          <Nav>
+            <FooterHeading>Services</FooterHeading>
+            <FooterLink>Branding</FooterLink>
+            <FooterLink>Design</FooterLink>
+            <FooterLink>Marketing Us</FooterLink>
+            <FooterLink>Advertisement</FooterLink>
+          </Nav>
+          <Nav>
+            <FooterHeading>Company</FooterHeading>
+            <FooterLink to="/about">About Us</FooterLink>
+            <FooterLink to="/contactus">Contact</FooterLink>
+          </Nav>
+          <Nav>
+            <FooterHeading>Legal</FooterHeading>
+            <FooterLink to="/terms">Terms of Use</FooterLink>
+            <FooterLink to="/privacy">Privacy Policy</FooterLink>
+            <FooterLink to="/cookies">Cookie Policy</FooterLink>
+          </Nav>
+        </FooterContent>
+        <CopyrightContainer>
+          <FaCopyright style={{ marginRight: "8px" }} />
+          <span>2025 FrontLine Design. All rights reserved.</span>
+        </CopyrightContainer>
+      </FooterContainer>
     </FooterContainerOuter>
   );
 }
 
-export default Footer;
 
+export default Footer;
+// Styled Component for Copyright Section

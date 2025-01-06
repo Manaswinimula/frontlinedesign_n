@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { WishlistContext } from "../Context/WishListContext";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -110,9 +110,10 @@ const ContactLink = styled.a`
   }
 `;
 
-function WishlistPage() {
-  const { wishlist, removeFromWishlist } = useContext(WishlistContext);
 
+
+function WishlistPage() {
+  const { wishlist, removeFromWishlist } = useContext(WishlistContext);  
   return (
     <WishlistContainer>
       <WishlistHeading>My Wishlist</WishlistHeading>

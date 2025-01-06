@@ -23,14 +23,14 @@ const fadeIn = keyframes`
 
 // Styled components
 const ContactPage = styled.div`
-  padding: 4rem 2rem;
+  padding: 4rem 1rem;
   text-align: center;
   animation: ${fadeIn} 1.2s ease-in-out;
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: rgb(202, 254, 238);
   color: #333;
-  min-height: 100vh; /* Ensures the page takes at least the full viewport height */
+  min-height: 70vh; /* Ensures the page takes at least the full viewport height */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Ensures proper spacing between content and footer */
@@ -228,204 +228,6 @@ const StyledListItem = styled.li`
 
 
 
-// const ContactUs = () => {
-//   const [isChatOpen, setIsChatOpen] = useState(false);
-//   const [messages, setMessages] = useState([]);
-//   const [currentMessage, setCurrentMessage] = useState("");
-//   const [isLoggedIn, setIsLoggedIn] = useState(false); // Manages login state
-
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     // Check localStorage for login state
-//     const storedLoginState = localStorage.getItem("isLoggedIn");
-//     if (storedLoginState === "true") {
-//       setIsLoggedIn(true);
-//     }
-//   }, []);
-
-//   const toggleChat = () => setIsChatOpen((prev) => !prev);
-
-//   const defaultResponses = {
-//     greetings: ["hello", "hi", "hey"],
-//     howAreYou: ["how are you", "how's it going"],
-//     nameQuery: ["what is your name", "who are you"],
-//     roomIdeas: ["living room ideas", "bedroom ideas", "kitchen designs"],
-//   };
-
-//   const responseMap = {
-//     greetings: "Hi there! How can I assist you today?",
-//     howAreYou: "I'm just a bot, but I'm functioning perfectly! How about you?",
-//     nameQuery: "I'm your friendly chatbot here to help you.",
-//     roomIdeas: (
-//       <>
-//         Here are some ideas for different rooms:
-//         <StyledList>
-//           <StyledListItem>
-//             <span
-//               style={{ cursor: "pointer", color: "#007f7f", textDecoration: "underline" }}
-//               onClick={() =>
-//                 isLoggedIn ? navigate("/living-room") : navigate("/login")
-//               }
-//             >
-//               Living Room
-//             </span>
-//           </StyledListItem>
-//           <StyledListItem>
-//             <span
-//               style={{ cursor: "pointer", color: "#007f7f", textDecoration: "underline" }}
-//               onClick={() =>
-//                 isLoggedIn ? navigate("/bedroom") : navigate("/login")
-//               }
-//             >
-//               Bedroom
-//             </span>
-//           </StyledListItem>
-//           <StyledListItem>
-//             <span
-//               style={{ cursor: "pointer", color: "#007f7f", textDecoration: "underline" }}
-//               onClick={() =>
-//                 isLoggedIn ? navigate("/kitchen") : navigate("/login")
-//               }
-//             >
-//               Kitchen
-//             </span>
-//           </StyledListItem>
-//         </StyledList>
-//       </>
-//     ),
-//     default: "I'm sorry, I didn't understand that. Can you please rephrase?",
-//   };
-
-//   const fetchBotResponse = (userInput) => {
-//     const normalizedInput = userInput.toLowerCase().trim();
-//     for (const [key, phrases] of Object.entries(defaultResponses)) {
-//       if (phrases.some((phrase) => normalizedInput.includes(phrase))) {
-//         return responseMap[key];
-//       }
-//     }
-//     return responseMap["default"];
-//   };
-
-//   const sendMessage = () => {
-//     if (currentMessage.trim() === "") return;
-
-//     const userMessage = { text: currentMessage, isUser: true };
-//     setMessages((prev) => [...prev, userMessage]);
-
-//     setCurrentMessage("");
-
-//     const botResponseText = fetchBotResponse(currentMessage);
-
-//     setMessages((prev) => [...prev, { text: botResponseText, isUser: false }]);
-//   };
-
-//   return (
-//     <ContactPage>
-//       <ContactTitle>Get in Touch</ContactTitle>
-//       <ContactSubtitle>
-//         We'd love to hear from you! Reach out through any of the channels below.
-//       </ContactSubtitle>
-//       <ContactCardContainer>
-//         <ContactCard>
-//           <ContactIcon>
-//             <FaEnvelope />
-//           </ContactIcon>
-//           <ContactCardTitle>Email</ContactCardTitle>
-//           <ContactCardText>Drop us an email anytime!</ContactCardText>
-//           <ContactLink href="mailto:manaswinimula10@gmail.com">
-//             contact@frontline.com
-//           </ContactLink>
-//         </ContactCard>
-
-//         <ContactCard>
-//           <ContactLink href="tel:+919704714412">
-//             <ContactIcon>
-//               <FaPhoneAlt />
-//             </ContactIcon>
-//           </ContactLink>
-//           <ContactCardTitle>Phone</ContactCardTitle>
-//           <ContactCardText>Call us for immediate assistance:</ContactCardText>
-//         </ContactCard>
-
-//         <ContactCard>
-//           <SocialIcons>
-//             <SocialIcon
-//               href="https://www.instagram.com/charan__x7/"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//             >
-//               <FaInstagram />
-//             </SocialIcon>
-//             <SocialIcon
-//               href="https://facebook.com"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//             >
-//               <FaFacebook />
-//             </SocialIcon>
-//             <SocialIcon
-//               href="https://x.com/Sricharan000"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//             >
-//               <FaTwitter />
-//             </SocialIcon>
-//           </SocialIcons>
-//           <ContactCardTitle>Social Media</ContactCardTitle>
-//           <ContactCardText>
-//             Connect with us on our social platforms!
-//           </ContactCardText>
-//         </ContactCard>
-//       </ContactCardContainer>
-//       <ChatbotContainer>
-//         {!isChatOpen ? (
-//           <ChatbotToggle onClick={toggleChat}>Chat with us!</ChatbotToggle>
-//         ) : (
-//           <ChatbotWindow>
-//             <ChatbotHeader>
-//               Chatbot
-//               <span
-//                 style={{ float: "right", cursor: "pointer" }}
-//                 onClick={toggleChat}
-//               >
-//                 ✖
-//               </span>
-//             </ChatbotHeader>
-//             <ChatbotBody>
-//               {messages.map((msg, idx) => (
-//                 <ChatbotMessage key={idx} isUser={msg.isUser}>
-//                   {msg.text}
-//                 </ChatbotMessage>
-//               ))}
-//             </ChatbotBody>
-//             <ChatbotFooter>
-//               <ChatbotInput
-//                 type="text"
-//                 placeholder="Type your message..."
-//                 value={currentMessage}
-//                 onChange={(e) => setCurrentMessage(e.target.value)}
-//               />
-//               <ChatbotSendButton onClick={sendMessage}>
-//                 Send
-//               </ChatbotSendButton>
-//             </ChatbotFooter>
-//           </ChatbotWindow>
-//         )}
-//       </ChatbotContainer>
-//     </ContactPage>
-//   );
-// };
-
-// export default ContactUs;
-
-
-
-
-
-
-
-
 const ContactUs = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -448,7 +250,8 @@ const ContactUs = () => {
     greetings: ["hello", "hi", "hey"],
     howAreYou: ["how are you", "how's it going"],
     nameQuery: ["what is your name", "who are you"],
-    roomIdeas: ["living room ideas", "bedroom ideas", "kitchen designs"],
+    roomIdeas: ["living room", "bedroom", "kitchen","design","Designs"],
+    contactAgent:["agent","call agent","details"]
   };
 
   const responseMap = {
@@ -492,6 +295,7 @@ const ContactUs = () => {
         </StyledList>
       </>
     ),
+    contactAgent:"here's the details of an agent: Name: Harsha-7013870903",
     default: "I'm sorry, I didn't understand that. Can you please rephrase?",
   };
 

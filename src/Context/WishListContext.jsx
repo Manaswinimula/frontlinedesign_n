@@ -24,7 +24,7 @@ export const WishlistProvider = ({ children }) => {
     };
 
     fetchWishlist();
-  }, [userId]);
+  });
 
   const addToWishlist = async (item) => {
     if (!userId) return;
